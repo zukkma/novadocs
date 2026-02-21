@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova — Docs</title>
+  <link rel="stylesheet" href="css/nova.css">
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#" data-p="inicio">
+    <img src="images/nova.png" alt="Nova">
+  </a>
+  <div class="header-right">
+    <nav class="header-nav" style="display:flex;gap:2px;">
+      <a href="#" class="nav-link" data-p="inicio">Docs</a>
+      <a href="#" class="nav-link" data-p="membresias">VIP</a>
+      <a href="#" class="nav-link" data-p="links">Links</a>
+    </nav>
+    <div class="search-box" id="search-btn">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Buscar
+      <kbd>⌘K</kbd>
+    </div>
+    <button class="mobile-btn" id="mb">
+      <svg width="17" height="17" viewBox="0 0 18 18" fill="none"><rect y="2" width="18" height="2" rx="1" fill="currentColor"/><rect y="8" width="18" height="2" rx="1" fill="currentColor"/><rect y="14" width="18" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<div id="search-overlay" class="search-overlay">
+  <div class="search-modal">
+    <div class="search-input-wrap">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input class="search-input" id="search-input" placeholder="Buscar en la documentación..." autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑↓</kbd> navegar</span>
+      <span><kbd>Enter</kbd> seleccionar</span>
+      <span><kbd>Esc</kbd> cerrar</span>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <aside id="sb">
+    <div>
+      <span class="sb-label">Empezar</span>
+      <a class="sb-link on" data-p="inicio">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><path d="M2 6L8 2L14 6V14H10V10H6V14H2V6Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        Inicio
+      </a>
+    </div>
+    <div>
+      <span class="sb-label">Rangos</span>
+      <a class="sb-link" data-p="rangos">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><rect x="2" y="9" width="3" height="5" stroke="currentColor" stroke-width="1.2"/><rect x="6.5" y="6" width="3" height="8" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="3" width="3" height="11" stroke="currentColor" stroke-width="1.2"/></svg>
+        Rangos
+      </a>
+      <a class="sb-link" data-p="membresias">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><path d="M8 2L9.5 6H14L10.5 8.5L12 13L8 10.5L4 13L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        Membresías VIP
+      </a>
+    </div>
+    <div>
+      <span class="sb-label">Guías</span>
+      <a class="sb-link" data-p="guias">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><path d="M3 2H13V14L8 11L3 14V2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        Guías
+      </a>
+    </div>
+    <div>
+      <span class="sb-label">Referencia</span>
+      <a class="sb-link" data-p="reglas">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><path d="M4 2H12V14H4V2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 6H10M6 9H10M6 12H8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Reglas
+      </a>
+      <a class="sb-link" data-p="faq">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M6 6.5C6 5.4 6.9 4.5 8 4.5C9.1 4.5 10 5.4 10 6.5C10 7.3 9.5 8 8.8 8.3L8 8.7V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="12" r=".6" fill="currentColor"/></svg>
+        FAQ
+        <span class="sb-badge">9</span>
+      </a>
+      <a class="sb-link" data-p="links">
+        <svg class="ico" viewBox="0 0 16 16" fill="none"><path d="M7 9C7.5 9.7 8.3 10 9 10C9.8 10 10.5 9.7 11 9.2L13 7.2C14 6.2 14 4.5 13 3.5C12 2.5 10.3 2.5 9.3 3.5L8.1 4.7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M9 7C8.5 6.3 7.7 6 7 6C6.2 6 5.5 6.3 5 6.8L3 8.8C2 9.8 2 11.5 3 12.5C4 13.5 5.7 13.5 6.7 12.5L7.9 11.3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Links
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="content">
+
+      <div id="p-inicio" class="page on">
+        <div class="hero">
+          <div class="hero-v">Nova Sandbox</div>
+          <h1>Bienvenido a <em>Nova</em></h1>
+          <p>Un servidor sandbox de Garry's Mod pensado para divertirse. Acá vas a encontrar todo lo que necesitás para empezar.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-p btn-nav" data-p="rangos">Ver rangos</a>
+            <a href="#" class="btn btn-s btn-nav" data-p="membresias">Membresías VIP</a>
+            <a href="#" class="btn btn-s btn-nav" data-p="faq">FAQ</a>
+          </div>
+        </div>
+
+        <h2>Explorar</h2>
+        <div class="card-grid">
+          <a href="#" class="card btn-nav" data-p="rangos">
+            <span class="card-ico"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="9" width="3" height="5" stroke="currentColor" stroke-width="1.2"/><rect x="6.5" y="6" width="3" height="8" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="3" width="3" height="11" stroke="currentColor" stroke-width="1.2"/></svg></span>
+            <div class="ct">Rangos</div>
+            <div class="cd">Todos los rangos y cómo obtenerlos.</div>
+          </a>
+          <a href="#" class="card btn-nav" data-p="membresias">
+            <span class="card-ico"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2L9.5 6H14L10.5 8.5L12 13L8 10.5L4 13L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+            <div class="ct">VIP</div>
+            <div class="cd">Membresías Star y Singularity.</div>
+          </a>
+          <a href="#" class="card btn-nav" data-p="reglas">
+            <span class="card-ico"><svg viewBox="0 0 16 16" fill="none"><path d="M4 2H12V14H4V2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 6H10M6 9H10M6 12H8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+            <div class="ct">Reglas</div>
+            <div class="cd">Normas de convivencia del servidor.</div>
+          </a>
+          <a href="#" class="card btn-nav" data-p="guias">
+            <span class="card-ico"><svg viewBox="0 0 16 16" fill="none"><path d="M3 2H13V14L8 11L3 14V2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+            <div class="ct">Guías</div>
+            <div class="cd">Tutoriales sobre mecánicas del servidor.</div>
+          </a>
+          <a href="#" class="card btn-nav" data-p="faq">
+            <span class="card-ico"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M6 6.5C6 5.4 6.9 4.5 8 4.5C9.1 4.5 10 5.4 10 6.5C10 7.3 9.5 8 8.8 8.3L8 8.7V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="12" r=".6" fill="currentColor"/></svg></span>
+            <div class="ct">FAQ</div>
+            <div class="cd">Preguntas frecuentes de la comunidad.</div>
+          </a>
+        </div>
+      </div>
+      
+      <div id="p-rangos" class="page">
+        <div class="eyebrow">Rangos</div>
+        <h1>Rangos del servidor</h1>
+        <p class="subtitle">Nova tiene un sistema de rangos progresivo. Algunos se obtienen automáticamente, otros requieren acción de tu parte.</p>
+
+        <table>
+          <thead>
+            <tr><th>Rango</th><th>Cómo obtenerlo</th><th>Beneficios destacados</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge b">Usuario</span></td>
+              <td>Rango predeterminado al entrar</td>
+              <td>Acceso básico al servidor</td>
+            </tr>
+            <tr>
+              <td><span class="badge g">Planet</span></td>
+              <td>Unirse al Discord y al Steam Group</td>
+              <td><code>!gotoa</code>, <code>!setspawn</code>, <code>!giveammo</code>, PAC3</td>
+            </tr>
+            <tr>
+              <td><span class="badge b">Moon</span></td>
+              <td>2 semanas dentro del servidor</td>
+              <td>Noclip, Votekick</td>
+            </tr>
+            <tr>
+              <td><span class="badge p">Sun</span></td>
+              <td>4 semanas dentro del servidor</td>
+              <td>Outfitter, <code>!scale</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge y">Star</span></td>
+              <td>Membresía de pago</td>
+              <td><a href="#" class="btn-nav inline-ref" data-p="membresias">Ver beneficios</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge p">Singularity</span></td>
+              <td>Membresía de pago</td>
+              <td><a href="#" class="btn-nav inline-ref" data-p="membresias">Ver beneficios</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge p">Master</span></td>
+              <td>Demostrar habilidad en PAC3 o Wiremod</td>
+              <td>Mismos beneficios que Singularity</td>
+            </tr>
+            <tr>
+              <td><span class="badge g">Big Bang</span></td>
+              <td>Aportar al servidor o crear contenido en redes</td>
+              <td>Mismos o más beneficios que Singularity</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <span class="ci"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M8 7V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="5" r=".6" fill="currentColor"/></svg></span>
+          <div class="cb">
+            <div class="ct">Planet</div>
+            <p>Para obtener Planet, uníte al <a href="https://discord.gg/BD79p9FpPV">Discord</a> y al <a href="https://steamcommunity.com/groups/ComNovaG">Steam Group</a>, y avisale a un administrador.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="p-membresias" class="page">
+        <div class="eyebrow">Rangos</div>
+        <h1>Membresías VIP</h1>
+        <p class="subtitle">Las membresías VIP desbloquean comandos exclusivos, herramientas adicionales y beneficios de calidad de vida.</p>
+
+        <div class="vip-card star">
+          <div class="vip-header">
+            <div class="vip-name">Star</div>
+            <div class="vip-price"><strong>$7.500</strong> ARS</div>
+          </div>
+          <div class="vip-section">
+            <div class="vip-section-label">Perks</div>
+            <ul class="vip-perks">
+              <li>PAC3</li>
+              <li>Outfitter</li>
+              <li>Tag en scoreboard y chat</li>
+              <li>Slots reservados</li>
+              <li>Máx. props: <strong>800</strong></li>
+            </ul>
+          </div>
+          <div class="vip-section">
+            <div class="vip-section-label">Comandos</div>
+            <div class="vip-cmds">
+              <code>!givebhop</code><code>!setspawn</code><code>!gravity</code><code>!votemap</code><code>!votekick</code><code>!vote</code><code>!cleardecals</code><code>!stopsound</code><code>!giveammo</code><code>!scale</code>
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <span class="badge y">Jerárquicamente inferior a Singularity</span>
+          </div>
+        </div>
+
+        <div class="vip-card singularity">
+          <div class="vip-header">
+            <div class="vip-name">Singularity</div>
+            <div class="vip-price"><strong>$11.500</strong> ARS</div>
+          </div>
+          <div class="vip-section">
+            <div class="vip-section-label">Perks</div>
+            <ul class="vip-perks">
+              <li>PAC3</li>
+              <li>Outfitter</li>
+              <li>Tag en chat <strong>personalizable</strong></li>
+              <li>Tag en scoreboard</li>
+              <li>Slots reservados</li>
+              <li>Máx. props: <strong>1000</strong></li>
+              <li>Autoguardado de props</li>
+              <li>Herramientas: AdvResizer, Resizer, EffectResizer, Custom Nextbots</li>
+            </ul>
+          </div>
+          <div class="vip-section">
+            <div class="vip-section-label">Comandos</div>
+            <div class="vip-cmds">
+              <code>!givebhop</code><code>!setspawn</code><code>!gravity</code><code>!votemap</code><code>!votekick</code><code>!vote</code><code>!cleardecals</code><code>!stopsound</code><code>!setrunspeed</code><code>!setwalkspeed</code><code>!setjumppower</code><code>!playsound</code><code>!goto</code><code>!giveammo</code><code>!scale</code>
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <span class="badge p">Jerárquicamente superior a Star</span>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <span class="ci"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M8 7V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="5" r=".6" fill="currentColor"/></svg></span>
+          <div class="cb">
+            <div class="ct">Cómo comprar</div>
+            <p>Abrí un ticket en el canal <strong>Compras</strong> dentro del <a href="https://discord.gg/BD79p9FpPV">Discord oficial</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="p-guias" class="page">
+        <div class="eyebrow">Guías</div>
+        <h1>Guías</h1>
+        <p class="subtitle">Tutoriales sobre mecánicas y herramientas del servidor.</p>
+
+        <h2>Cómo usar Spraymesh</h2>
+        <div class="step-list">
+          <div class="step">
+            <div class="step-n">1</div>
+            <div class="step-c">
+              <h3>Abrir Spraymesh</h3>
+              <p>Escribí <code>/spraymesh</code> en el chat. Arriba de la pantalla te va a aparecer el menú de configuración.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-n">2</div>
+            <div class="step-c">
+              <h3>Obtener el enlace del spray</h3>
+              <p>Subí tu imagen a <a href="https://imgur.com">imgur.com</a> o <a href="https://catbox.moe">catbox.moe</a> y copiá el enlace directo a la imagen.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-n">3</div>
+            <div class="step-c">
+              <h3>Configurar el spray</h3>
+              <p>En la <strong>casilla izquierda</strong> pegá el enlace de la imagen. En la <strong>casilla derecha</strong> poné el nombre que le querés dar al spray.</p>
+              <img src="images/tutorial1.png" alt="Menú de Spraymesh" class="doc-img">
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-n">4</div>
+            <div class="step-c">
+              <h3>Guardar y usar</h3>
+              <p>Apretá el botón <strong>Add spray</strong> de la derecha. Una vez guardado, podés seleccionarlo y usarlo por el mapa con la tecla <code>T</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <span class="ci"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 14H2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M8 7V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="12" r=".6" fill="currentColor"/></svg></span>
+          <div class="cb">
+            <div class="ct">Sección en desarrollo</div>
+            <p>Esta sección de guías se encuentra en construcción. Próximamente habrá más tutoriales disponibles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="p-reglas" class="page">
+        <div class="eyebrow">Referencia</div>
+        <h1>Reglas del servidor</h1>
+        <p class="subtitle">El incumplimiento de estas reglas puede derivar en sanciones temporales o permanentes.</p>
+
+        <h2>Normas generales</h2>
+
+        <h3>Buildmode</h3>
+        <p>No se puede usar el modo de construcción para molestar a otros jugadores.</p>
+
+        <h3>Wireabuse</h3>
+        <p>Wiremod provee herramientas para mecanismos avanzados, pero usarlo para verse beneficiado a la hora de molestar jugadores está prohibido.</p>
+
+        <h3>Spam / flood / voice chat</h3>
+        <p>Podés enviar el mismo mensaje hasta 6 veces, pero más de eso puede resultar en baneo. Respecto al voice chat, no está permitido usar soundboard o soundpad para molestar jugadores. Podés usarlos, pero no abuses del volumen, y si el staff te pide que pares, parás.</p>
+
+        <h3>Respeto mutuo</h3>
+        <p>No está permitida la discriminación, discursos de odio ni irritar voluntariamente a otros jugadores.</p>
+
+        <h3>PAC3 abuse</h3>
+        <p>Usar PAC3 para molestar jugadores está prohibido.</p>
+
+        <h3>Prop block</h3>
+        <p>Usar props o entidades para bloquear jugadores o gran parte del mapa está prohibido.</p>
+
+        <h3>No doxxear <span class="badge r" style="margin-left:6px;vertical-align:middle;">Ban permanente</span></h3>
+        <p>No está permitido difundir información privada de jugadores, bajo ningún motivo.</p>
+
+        <h3>No cheating ni exploiting <span class="badge r" style="margin-left:6px;vertical-align:middle;">Ban permanente</span></h3>
+        <p>El cheating en este servidor está totalmente prohibido.</p>
+
+        <h3>No crash <span class="badge r" style="margin-left:6px;vertical-align:middle;">Ban permanente</span></h3>
+        <p>Abusar de entidades, vehículos, props o vulnerabilidades del servidor para tirarlo está totalmente prohibido.</p>
+
+        <div class="callout warn">
+          <span class="ci"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 14H2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M8 7V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="12" r=".6" fill="currentColor"/></svg></span>
+          <div class="cb">
+            <div class="ct">Apelar una sanción</div>
+            <p>Si creés que una sanción fue injusta, abrí un ticket en el <a href="https://discord.gg/BD79p9FpPV">Discord</a>. Se requiere sentido común.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="p-faq" class="page">
+        <div class="eyebrow">Referencia</div>
+        <h1>Preguntas frecuentes</h1>
+        <p class="subtitle">Las preguntas más comunes de la comunidad. Si no encontrás tu respuesta, preguntá en Discord.</p>
+
+        <div style="margin-top:28px;">
+
+          <div class="faq-item">
+            <div class="faq-q">El prop push es legal?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Sí, el prop push es legal, excepto si el atacante o la víctima está en buildmode.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">El prop kill es legal?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Sí, solamente si el atacante no está en buildmode, o si el prop no es tan grande como para obstruir el mapa.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Qué es prop block?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Obstruir un jugador o zona del mapa usando props. En este servidor está totalmente prohibido.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Qué es wireabuse?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>El wireabuse es el uso de Wiremod para verse beneficiado en combate o para molestar jugadores.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Qué es PAC3 abuse?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Hacer uso de PAC3 para molestar jugadores.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Qué hago si veo una violación a las reglas?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Informale al jugador que no puede hacer X cosa. Si continúa, avisá al staff abriendo un ticket en el <a href="https://discord.gg/BD79p9FpPV">Discord</a>.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Cómo obtengo una membresía VIP?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Tenés que ir al Discord y abrir un ticket en la categoría <strong>Compras</strong>. Si querés ver los beneficios, <a href="#" class="btn-nav" data-p="membresias">apretá acá</a>.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Veo errores, qué hago?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Es normal. Suscribite a la <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3571250965">colección del servidor</a> en Steam Workshop y reiniciá Garry's Mod.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Cómo obtengo Planet?<span class="faq-arr"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="faq-a"><div class="faq-ai"><p>Uníte al <a href="https://discord.gg/BD79p9FpPV">Discord</a> y al <a href="https://steamcommunity.com/groups/ComNovaG">Steam Group</a>, y avisale a un administrador.</p></div></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="p-links" class="page">
+        <div class="eyebrow">Referencia</div>
+        <h1>Links oficiales</h1>
+        <p class="subtitle">Todos los canales y recursos oficiales de Nova.</p>
+
+        <a href="https://discord.gg/BD79p9FpPV" class="link-card">
+          <div class="link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4C18.8 3.7 17.2 3.2 15.5 3c-.2.4-.4.8-.6 1.2-1.6-.2-3.2-.2-4.8 0C9.9 3.8 9.7 3.4 9.5 3 7.8 3.2 6.2 3.7 4.7 4.4 1.7 9 .9 13.4 1.3 17.8c1.8 1.3 3.5 2.1 5.2 2.6.4-.6.8-1.2 1.1-1.8-.6-.2-1.2-.5-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.2 0l.4.3c-.6.3-1.1.6-1.7.8.3.6.7 1.2 1.1 1.8 1.7-.5 3.4-1.3 5.2-2.6.5-5-1-9.3-3.2-13.4zM8.5 15.2c-1 0-1.9-.9-1.9-2.1s.8-2.1 1.9-2.1c1 0 1.9.9 1.9 2.1s-.9 2.1-1.9 2.1zm7 0c-1 0-1.9-.9-1.9-2.1s.8-2.1 1.9-2.1c1 0 1.9.9 1.9 2.1s-.9 2.1-1.9 2.1z"/></svg></div>
+          <div class="link-info">
+            <div class="link-name">Discord</div>
+            <div class="link-url">discord.gg/BD79p9FpPV</div>
+          </div>
+          <span class="link-arr">↗</span>
+        </a>
+
+        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3571250965" class="link-card">
+          <div class="link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke-linecap="round"/></svg></div>
+          <div class="link-info">
+            <div class="link-name">Colección del servidor</div>
+            <div class="link-url">steamcommunity.com — Workshop Collection</div>
+          </div>
+          <span class="link-arr">↗</span>
+        </a>
+
+        <a href="https://steamcommunity.com/groups/ComNovaG" class="link-card">
+          <div class="link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="link-info">
+            <div class="link-name">Steam Group</div>
+            <div class="link-url">steamcommunity.com/groups/ComNovaG</div>
+          </div>
+          <span class="link-arr">↗</span>
+        </a>
+
+        <a href="https://steamcommunity.com/chat/invite/CgHpSgEg" class="link-card">
+          <div class="link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="link-info">
+            <div class="link-name">Chat del Steam Group</div>
+            <div class="link-url">steamcommunity.com/chat/invite/CgHpSgEg</div>
+          </div>
+          <span class="link-arr">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/nova.js"></script>
+</body>
+</html>
